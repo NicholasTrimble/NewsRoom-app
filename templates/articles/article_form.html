@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles</title>
+</head>
+<body>
+    <h1>{% if article %}Edit{% else %}New{% endif %} Article</h1>
+
+<form method="post">
+  {% csrf_token %}
+
+  <label>Title</label><br>
+  <input type="text" name="title" value="{{ article.title|default:'' }}"><br><br>
+
+  <label>Body</label><br>
+  <textarea name="body">{{ article.body|default:'' }}</textarea><br><br>
+
+  <button type="submit">Save</button>
+</form>
+
+</body>
+</html>

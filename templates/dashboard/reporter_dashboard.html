@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporter Dashboard</title>
+</head>
+<body>
+    <h1>Reporter Dashboard</h1>
+
+<a href="{% url 'article-create' %}">New Article</a>
+
+<ul>
+  {% for article in articles %}
+    <li>
+      {{ article.title }} ({{ article.status }})
+      <a href="{% url 'article-edit' article.id %}">Edit</a>
+    </li>
+  {% empty %}
+    <li>No articles yet.</li>
+  {% endfor %}
+</ul>
+
+</body>
+</html>

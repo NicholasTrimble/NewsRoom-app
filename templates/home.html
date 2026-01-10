@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Newsroom CMS</title>
+</head>
+<body>
+    <h1>Welcome to the Newsroom CMS</h1>
+
+    <ul>
+        <li><a href="{% url 'reporter-dashboard' %}">Reporter Dashboard</a></li>
+        <li><a href="{% url 'article-create' %}">Create New Article</a></li>
+        <li><a href="/admin/">Admin Panel</a></li>
+    </ul>
+</body>
+</html>
